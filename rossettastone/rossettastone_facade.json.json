@@ -1,0 +1,647 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Rosetta Stone API",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:7071",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/ReferenceDataTranslate": {
+      "post": {
+        "description": "Translates a JSON payload source reference data item into its target value",
+        "operationId": "ReferenceDataTranslate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ReferenceDataTranslateParams",
+            "description": "A JSON payload detailing the source translation item",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReferenceDataTranslateParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of ReferenceDataTranslateResult items",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReferenceDataTranslateResult"
+              }
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/ReferenceDataUpload": {
+      "post": {
+        "description": "Transforms a JSON payload into reference data translations and inserts them into the Rosetta Stone database",
+        "operationId": "ReferenceDataUpload",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TranslationData",
+            "description": "A JSON payload detailing the translations to insert",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TranslationData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All Good message. The reference data translations upload was a success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/RegisterElementCreate": {
+      "post": {
+        "description": "Transforms a JSON payload into register elements and inserts them into the Rosetta Stone database",
+        "operationId": "RegisterElementCreate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "RegisterElementCreateParams",
+            "description": "A JSON payload detailing the register elements to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterElementCreateParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All Good message. The register elements upload was a success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/RegisterElementUpdate": {
+      "post": {
+        "description": "Transforms a JSON payload and updates a register element in the Rosetta Stone database",
+        "operationId": "RegisterElementUpdate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TranslationData",
+            "description": "A JSON payload detailing the register elements to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterElementUpdateParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All Good message. The register elements upload was a success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/RegisterSearchByElementType": {
+      "post": {
+        "description": "Transforms a JSON payload and searches the Rosetta Stone database for matching elements. returns a list of Sor unique identifiers",
+        "operationId": "RegisterSearchByElementType",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "RegisterSearchByElementTypeParams",
+            "description": "A JSON payload detailing the register elements to search for",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterSearchByElementTypeParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of ElementMapResult objects",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ElementMapResult"
+              }
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/RegisterTranslateSorToTarget": {
+      "post": {
+        "description": "Transforms a JSON payload and searches the Rosetta Stone database for matching matching Sors. Returns a list of Sor unique identifiers",
+        "operationId": "RegisterTranslateSorToTarget",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "RegisterTranslateSorToTargetParams",
+            "description": "A JSON payload detailing the Sor UID to search for",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterTranslateSorToTargetParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of TranslateSorResult objects",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TranslateSorResult"
+              }
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/SystemOfReferenceCreate": {
+      "post": {
+        "description": "Transforms a JSON payload and inserts or updates a System of Reference in the Rosetta Stone database",
+        "operationId": "SystemOfReferenceCreate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SORCreateParams",
+            "description": "A JSON payload detailing the Sor to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SORCreateParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All Good message. The Sor upload was a success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Error Message of what went wrong",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "authKey": {
+      "type": "apiKey",
+      "name": "x-functions-key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "ReferenceDataTranslateParams": {
+      "type": "object",
+      "required": [
+        "SourceSorBK",
+        "SourceEntityBK",
+        "SourceElementTypeBK",
+        "SourceElementValue",
+        "TargetSorBK"
+      ],
+      "properties": {
+        "SourceSorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SourceEntityBK": {
+          "type": "string",
+          "example": "ACC"
+        },
+        "SourceElementTypeBK": {
+          "type": "string",
+          "example": "CHNo"
+        },
+        "SourceElementValue": {
+          "type": "string",
+          "example": "A12345"
+        },
+        "TargetSorBK": {
+          "type": "string",
+          "example": "SCRM"
+        }
+      }
+    },
+    "ReferenceDataTranslateResult": {
+      "type": "object",
+      "required": [
+        "SorBK",
+        "SorName",
+        "EntityBK",
+        "EntityName",
+        "ElementTypeBK",
+        "ElementTypeName",
+        "ElementValue",
+        "ElementDescription"
+      ],
+      "properties": {
+        "SorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SorName": {
+          "type": "string",
+          "example": "Helpdesk"
+        },
+        "EntityBK": {
+          "type": "string",
+          "example": "ACC"
+        },
+        "EntityName": {
+          "type": "string",
+          "example": "Account"
+        },
+        "ElementTypeBK": {
+          "type": "string",
+          "example": "AccStat"
+        },
+        "ElementTypeName": {
+          "type": "string",
+          "example": "Account Status"
+        },
+        "ElementValue": {
+          "type": "string",
+          "example": "1"
+        },
+        "ElementDescription": {
+          "type": "string",
+          "example": "Open"
+        }
+      }
+    },
+    "TranslationData": {
+      "type": "object",
+      "required": [
+        "Translations"
+      ],
+      "properties": {
+        "Translations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Translation"
+          }
+        }
+      }
+    },
+    "Translation": {
+      "type": "object",
+      "required": [
+        "ElementTypeBK",
+        "ElementTypeName",
+        "ReferenceSets"
+      ],
+      "properties": {
+        "ElementTypeBK": {
+          "type": "string",
+          "example": "AccStat"
+        },
+        "ElementTypeName": {
+          "type": "string",
+          "example": "Account Status"
+        },
+        "ReferenceSets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Referenceset"
+          }
+        }
+      }
+    },
+    "Referenceset": {
+      "type": "object",
+      "required": [
+        "ElementDetails"
+      ],
+      "properties": {
+        "ElementDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Elementdetail"
+          }
+        }
+      }
+    },
+    "Elementdetail": {
+      "type": "object",
+      "required": [
+        "SorBK",
+        "EntityBK",
+        "ElementValue",
+        "ElementDescription"
+      ],
+      "properties": {
+        "SorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "EntityBK": {
+          "type": "string",
+          "example": "ACC"
+        },
+        "ElementValue": {
+          "type": "string",
+          "example": "1"
+        },
+        "ElementDescription": {
+          "type": "string",
+          "example": "Open"
+        }
+      }
+    },
+    "RegisterElementCreateParams": {
+      "type": "object",
+      "required": [
+        "SourceSorBK",
+        "EntityBK",
+        "SourceSorUIDVal",
+        "SourceDataElements"
+      ],
+      "properties": {
+        "SourceSorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "EntityBK": {
+          "type": "string",
+          "example": "CHNo"
+        },
+        "TargetSorBK": {
+          "type": "string",
+          "example": "SCRM"
+        },
+        "SourceSorUIDVal": {
+          "type": "string",
+          "example": "A12345"
+        },
+        "TargetSorUIDVal": {
+          "type": "string",
+          "example": "B180C301-B289.."
+        },
+        "SourceDataElements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SourceDataElement"
+          }
+        }
+      }
+    },
+    "SourceDataElement": {
+      "type": "object",
+      "required": [
+        "ElementType",
+        "ElementValue"
+      ],
+      "properties": {
+        "ElementType": {
+          "type": "string",
+          "example": "CHNo"
+        },
+        "ElementValue": {
+          "type": "string",
+          "example": "A123456"
+        }
+      }
+    },
+    "RegisterElementUpdateParams": {
+      "type": "object",
+      "required": [
+        "SorBK",
+        "EntityBK",
+        "SorUIDVal",
+        "ElementTypeBK",
+        "ElementValue"
+      ],
+      "properties": {
+        "SorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "EntityBK": {
+          "type": "string",
+          "example": "ACC"
+        },
+        "SorUIDVal": {
+          "type": "string",
+          "example": "A123456"
+        },
+        "ElementTypeBK": {
+          "type": "string",
+          "example": "CHNo"
+        },
+        "ElementValue": {
+          "type": "string",
+          "example": "B098765"
+        }
+      }
+    },
+    "RegisterSearchByElementTypeParams": {
+      "type": "object",
+      "required": [
+        "SearchElementTypeBK",
+        "SearchElementValue"
+      ],
+      "properties": {
+        "SearchElementTypeBK": {
+          "type": "string",
+          "example": "CHNo"
+        },
+        "SearchElementValue": {
+          "type": "string",
+          "example": "A123456"
+        },
+        "SearchSorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SearchEntityBK": {
+          "type": "string",
+          "example": "ACC"
+        }
+      }
+    },
+    "ElementMapResult": {
+      "type": "object",
+      "required": [
+        "SorBK",
+        "SorUIDVal"
+      ],
+      "properties": {
+        "SorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SorUIDVal": {
+          "type": "string",
+          "example": "A123456"
+        }
+      }
+    },
+    "RegisterTranslateSorToTargetParams": {
+      "type": "object",
+      "required": [
+        "SourceSorBK",
+        "SourceEntityBK",
+        "SourceSorUIDVal",
+        "TargetSorBK"
+      ],
+      "properties": {
+        "SourceSorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SourceEntityBK": {
+          "type": "string",
+          "example": "ACC"
+        },
+        "SourceSorUIDVal": {
+          "type": "string",
+          "example": "A123456"
+        },
+        "TargetSorBK": {
+          "type": "string",
+          "example": "SCRM"
+        }
+      }
+    },
+    "TranslateSorResult": {
+      "type": "object",
+      "required": [
+        "SourceSorBK",
+        "SourceEntityBK",
+        "SourceSorUIDVal",
+        "TargetSorBK",
+        "TargetSorUIDVal"
+      ],
+      "properties": {
+        "SourceSorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SourceEntityBK": {
+          "type": "string",
+          "example": "ACC"
+        },
+        "SourceSorUIDVal": {
+          "type": "string",
+          "example": "A123456"
+        },
+        "TargetSorBK": {
+          "type": "string",
+          "example": "SCRM"
+        },
+        "TargetSorUIDVal": {
+          "type": "string",
+          "example": "B180C301-B289.."
+        }
+      }
+    },
+    "SORCreateParams": {
+      "type": "object",
+      "required": [
+        "SorBK",
+        "SorName",
+        "InternalSor"
+      ],
+      "properties": {
+        "SorBK": {
+          "type": "string",
+          "example": "HD"
+        },
+        "SorName": {
+          "type": "string",
+          "example": "Helpdesk"
+        },
+        "InternalSor": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    }
+  }
+}
