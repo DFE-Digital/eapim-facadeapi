@@ -499,7 +499,7 @@
   "outputs": {
     "logicAppResourceId": {
       "type": "string",
-      "value": "resourceId('Microsoft.Logic/workflows/', variables('logicAppName'))"
+      "value": "[resourceId('Microsoft.Logic/workflows/', variables('logicAppName'))]"
    }
   }
 }
