@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "value": "s113d01-tickdisp-la-01"
+    },
+    "middleware_servicebus_connection_name": {
+      "value": "middlewareservicebus"
+    },
+    "middleware_servicebus_diaplay_name": {
+      "value": "s113d01-ac-01"
+    },
+    "middleware_servicebus_connection_string": {
+      "value": "Endpoint=sb://s113d01-sb-01.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=441SRoVfnr1opvmAzyXEIa/8mercWWadLCDRRjafPlI="
+    },
+    "middleware_servicebus_queue_name": {
+      "value": "helpdesk-ticket-created"
+    },
+    "LogicAppLocation": {
+      "value": "westeurope"
+    }
+  }
+}
