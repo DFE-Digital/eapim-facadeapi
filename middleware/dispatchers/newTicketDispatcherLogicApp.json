@@ -496,5 +496,10 @@
       }
     }
   ],
-  "outputs": {}
+  "outputs": {
+    "logicAppUrl": {
+      "type": "string",
+      "value": "resourceId('Microsoft.Logic/workflows/', variables('logicAppName'))"
+   }
+  }
 }
