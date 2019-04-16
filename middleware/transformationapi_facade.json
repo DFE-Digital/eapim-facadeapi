@@ -138,6 +138,7 @@
       "required": [
         "systemName",
         "systemEntity",
+        "eventAction",
         "toTransform"
       ],
       "properties": {
@@ -148,6 +149,10 @@
         "systemEntity": {
           "type": "string",
           "example": "ticket"
+        },
+        "eventAction": {
+          "type": "string",
+          "example": "create"
         },
         "toTransform": {
           "$ref": "#/definitions/ldm-entity"
@@ -169,6 +174,7 @@
       "required": [
         "systemName",
         "systemEntity",
+        "eventAction",
         "toTransform"
       ],
       "properties": {
@@ -179,6 +185,10 @@
         "systemEntity": {
           "type": "string",
           "example": "ticket"
+        },
+        "eventAction": {
+          "type": "string",
+          "example": "created"
         },
         "toTransform": {
           "$ref": "#/definitions/external-entity"
