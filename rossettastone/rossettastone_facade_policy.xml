@@ -1,7 +1,7 @@
 <policies>
     <inbound>
         <base />
-        <set-backend-service id="apim-generated-policy" backend-id="s113d01-rstone-fa-01" />
+        <set-backend-service id="apim-generated-policy" backend-id="{{rossettastone_backend_id}}" />
     </inbound>
     <backend>
         <base />
