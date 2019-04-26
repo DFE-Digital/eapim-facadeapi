@@ -1,7 +1,7 @@
 <policies>
     <inbound>
         <base />
-        <set-backend-service id="apim-generated-policy" backend-id="s113d01-fa-01" />
+        <set-backend-service id="apim-generated-policy" backend-id="{{transformation_backend_id}}" />
     </inbound>
     <backend>
         <base />
