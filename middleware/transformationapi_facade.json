@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Transformation API",
+    "title": "CS Transformation API",
     "license": {
       "name": "MIT"
     },
