@@ -1,17 +1,10 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "CS Transformation API",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "2.0.0"
+    "title": "Transformation API",
+    "version": "2.0"
   },
-  "host": "localhost:7071",
-  "basePath": "/api",
-  "schemes": [
-    "http"
-  ],
+  "basePath": "/v1/transformation",
   "paths": {
     "/from-logical-data-model": {
       "post": {
@@ -138,6 +131,7 @@
       "required": [
         "systemName",
         "systemEntity",
+        "eventAction",
         "toTransform"
       ],
       "properties": {
@@ -148,6 +142,10 @@
         "systemEntity": {
           "type": "string",
           "example": "ticket"
+        },
+        "eventAction": {
+          "type": "string",
+          "example": "create"
         },
         "toTransform": {
           "$ref": "#/definitions/ldm-entity"
@@ -169,6 +167,7 @@
       "required": [
         "systemName",
         "systemEntity",
+        "eventAction",
         "toTransform"
       ],
       "properties": {
@@ -179,6 +178,10 @@
         "systemEntity": {
           "type": "string",
           "example": "ticket"
+        },
+        "eventAction": {
+          "type": "string",
+          "example": "created"
         },
         "toTransform": {
           "$ref": "#/definitions/external-entity"
