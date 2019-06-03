@@ -2,7 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "Transformation API",
-    "version": "2.0"
+    "version": "2.0",
+    "description": "Internal middleware component: transforms messages to/from system formats to/from the Logical Data Model."
   },
   "basePath": "/v1/transformation",
   "paths": {
@@ -106,13 +107,6 @@
           }
         }
       }
-    }
-  },
-  "securityDefinitions": {
-    "authKey": {
-      "type": "apiKey",
-      "name": "x-functions-key",
-      "in": "header"
     }
   },
   "definitions": {
