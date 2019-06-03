@@ -109,13 +109,6 @@
       }
     }
   },
-  "securityDefinitions": {
-    "authKey": {
-      "type": "apiKey",
-      "name": "x-functions-key",
-      "in": "header"
-    }
-  },
   "definitions": {
     "ldm-entity": {
       "type": "object",
