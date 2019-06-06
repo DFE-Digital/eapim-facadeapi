@@ -2,21 +2,59 @@
   "swagger": "2.0",
   "info": {
     "title": "Rosetta Stone API",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "Internal middleware component: records and describes relationships between data. A translation engine."
   },
-  "host": "localhost:7071",
-  "basePath": "/api",
-  "schemes": [
-    "http"
-  ],
+  "basePath": "/v1/rosetta-stone",
   "paths": {
-    "/ReferenceDataTranslate": {
+    "/reference-data-get-upload-json": {
       "post": {
-        "description": "Translates a JSON payload source reference data item into its target value",
-        "operationId": "ReferenceDataTranslate",
+        "description": "Returns a JSON payload showing JSON required to upload a reference data translation",
+        "operationId": "reference-data-get-upload-json",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ReferenceDataUploadJsonParams",
+            "description": "A JSON payload detailing the ElementTypeBK of the translation item",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReferenceDataUploadJsonParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "JSON payload showing JSON used to upload translations for the ElementTypeBK",
+            "schema": {
+              "$ref": "#/definitions/TranslationData"
+            }
+          },
+          "400": {
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
+          }
+        }
+      }
+    },
+    "/reference-data-translate": {
+      "post": {
+        "description": "Translates a JSON payload source reference data item into its target value. Note: TargetSorBK can be 'ALL' to return all systems.",
+        "operationId": "reference-data-translate",
         "produces": [
           "application/json",
           "application/xml"
@@ -43,18 +81,27 @@
             }
           },
           "400": {
-            "description": "Error Message of what went wrong",
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
             "schema": {
               "type": "string"
             }
+          },
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
           }
         }
       }
     },
-    "/ReferenceDataUpload": {
+    "/reference-data-upload": {
       "post": {
         "description": "Transforms a JSON payload into reference data translations and inserts them into the Rosetta Stone database",
-        "operationId": "ReferenceDataUpload",
+        "operationId": "reference-data-upload",
         "produces": [
           "application/json",
           "application/xml"
@@ -72,24 +119,30 @@
         ],
         "responses": {
           "200": {
-            "description": "All Good message. The reference data translations upload was a success",
+            "description": "The reference data translations upload was a success"
+          },
+          "400": {
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
             "schema": {
               "type": "string"
             }
           },
-          "400": {
-            "description": "Error Message of what went wrong",
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
             "schema": {
               "type": "string"
             }
+          },
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
           }
         }
       }
     },
-    "/RegisterElementCreate": {
+    "/register-element-create": {
       "post": {
         "description": "Transforms a JSON payload into register elements and inserts them into the Rosetta Stone database",
-        "operationId": "RegisterElementCreate",
+        "operationId": "register-element-create",
         "produces": [
           "application/json",
           "application/xml"
@@ -107,59 +160,30 @@
         ],
         "responses": {
           "200": {
-            "description": "All Good message. The register elements upload was a success",
+            "description": "The register elements upload was a success"
+          },
+          "400": {
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
             "schema": {
               "type": "string"
             }
           },
-          "400": {
-            "description": "Error Message of what went wrong",
-            "schema": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "/RegisterElementUpdate": {
-      "post": {
-        "description": "Transforms a JSON payload and updates a register element in the Rosetta Stone database",
-        "operationId": "RegisterElementUpdate",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "TranslationData",
-            "description": "A JSON payload detailing the register elements to create",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/RegisterElementUpdateParams"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "All Good message. The register elements upload was a success",
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
             "schema": {
               "type": "string"
             }
           },
-          "400": {
-            "description": "Error Message of what went wrong",
-            "schema": {
-              "type": "string"
-            }
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
           }
         }
       }
     },
-    "/RegisterSearchByElementType": {
+    "/register-searchby-element-type": {
       "post": {
         "description": "Transforms a JSON payload and searches the Rosetta Stone database for matching elements. returns a list of Sor unique identifiers",
-        "operationId": "RegisterSearchByElementType",
+        "operationId": "register-searchby-element-type",
         "produces": [
           "application/json",
           "application/xml"
@@ -186,18 +210,27 @@
             }
           },
           "400": {
-            "description": "Error Message of what went wrong",
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
             "schema": {
               "type": "string"
             }
+          },
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
           }
         }
       }
     },
-    "/RegisterTranslateSorToTarget": {
+    "/register-translate-sor-to-target": {
       "post": {
         "description": "Transforms a JSON payload and searches the Rosetta Stone database for matching matching Sors. Returns a list of Sor unique identifiers",
-        "operationId": "RegisterTranslateSorToTarget",
+        "operationId": "register-translate-sor-to-target",
         "produces": [
           "application/json",
           "application/xml"
@@ -224,18 +257,27 @@
             }
           },
           "400": {
-            "description": "Error Message of what went wrong",
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
             "schema": {
               "type": "string"
             }
+          },
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
           }
         }
       }
     },
-    "/SystemOfReferenceCreate": {
+    "/system-of-reference-create": {
       "post": {
         "description": "Transforms a JSON payload and inserts or updates a System of Reference in the Rosetta Stone database",
-        "operationId": "SystemOfReferenceCreate",
+        "operationId": "system-of-reference-create",
         "produces": [
           "application/json",
           "application/xml"
@@ -253,16 +295,22 @@
         ],
         "responses": {
           "200": {
-            "description": "All Good message. The Sor upload was a success",
+            "description": "The Sor upload was a success"
+          },
+          "400": {
+            "description": "Bad Request - Error Message detailing what was wrong with the payload",
             "schema": {
               "type": "string"
             }
           },
-          "400": {
-            "description": "Error Message of what went wrong",
+          "404": {
+            "description": "Not Found - Error Message detailing what was not found",
             "schema": {
               "type": "string"
             }
+          },
+          "500": {
+            "description": "Internal System Error - stack trace in internal logs"
           }
         }
       }
@@ -276,6 +324,18 @@
     }
   },
   "definitions": {
+    "ReferenceDataUploadJsonParams": {
+      "type": "object",
+      "required": [
+        "ElementTypeBK"
+      ],
+      "properties": {
+        "ElementTypeBK": {
+          "type": "string",
+          "example": "TicStat"
+        }
+      }
+    },
     "ReferenceDataTranslateParams": {
       "type": "object",
       "required": [
@@ -474,49 +534,17 @@
     "SourceDataElement": {
       "type": "object",
       "required": [
-        "ElementType",
-        "ElementValue"
-      ],
-      "properties": {
-        "ElementType": {
-          "type": "string",
-          "example": "CHNo"
-        },
-        "ElementValue": {
-          "type": "string",
-          "example": "A123456"
-        }
-      }
-    },
-    "RegisterElementUpdateParams": {
-      "type": "object",
-      "required": [
-        "SorBK",
-        "EntityBK",
-        "SorUIDVal",
         "ElementTypeBK",
         "ElementValue"
       ],
       "properties": {
-        "SorBK": {
-          "type": "string",
-          "example": "HD"
-        },
-        "EntityBK": {
-          "type": "string",
-          "example": "ACC"
-        },
-        "SorUIDVal": {
-          "type": "string",
-          "example": "A123456"
-        },
         "ElementTypeBK": {
           "type": "string",
           "example": "CHNo"
         },
         "ElementValue": {
           "type": "string",
-          "example": "B098765"
+          "example": "A123456"
         }
       }
     },
