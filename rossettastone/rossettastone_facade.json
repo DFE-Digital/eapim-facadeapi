@@ -180,7 +180,7 @@
         }
       }
     },
-    "/register-searchby-element-type": {
+    "/register-search-by-element-type": {
       "post": {
         "description": "Transforms a JSON payload and searches the Rosetta Stone database for matching elements. returns a list of Sor unique identifiers",
         "operationId": "register-searchby-element-type",
@@ -311,6 +311,18 @@
           },
           "500": {
             "description": "Internal System Error - stack trace in internal logs"
+          }
+        }
+      }
+    },
+    "/heart-beat": {
+      "get": {
+        "description": "Standard diagnostics method, used to test the health of the facade's underlying system.",
+        "operationId": "heart-beat",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The standard/only response from the method."
           }
         }
       }
