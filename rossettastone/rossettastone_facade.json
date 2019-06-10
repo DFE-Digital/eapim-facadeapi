@@ -183,7 +183,7 @@
     "/register-search-by-element-type": {
       "post": {
         "description": "Transforms a JSON payload and searches the Rosetta Stone database for matching elements. returns a list of Sor unique identifiers",
-        "operationId": "register-searchby-element-type",
+        "operationId": "register-search-by-element-type",
         "produces": [
           "application/json",
           "application/xml"
