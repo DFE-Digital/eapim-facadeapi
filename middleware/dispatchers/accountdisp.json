@@ -12,7 +12,7 @@
     },
     "ServiceBusQueueName": {
       "type": "string",
-      "defaultValue": "helpdesk-ticket-created",
+      "defaultValue": "crm-account-created",
       "metadata": {
         "description": "Queue name"
       }
