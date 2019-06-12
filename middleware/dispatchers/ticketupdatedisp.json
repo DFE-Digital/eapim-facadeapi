@@ -10,13 +10,6 @@
       "type": "string",
       "defaultValue": "s113d01-servicebus-conn"
     },
-    "ServiceBusQueueName": {
-      "type": "string",
-      "defaultValue": "helpdesk-ticket-updated",
-      "metadata": {
-        "description": "Queue name"
-      }
-    },
     "LogicAppLocation": {
       "type": "string",
       "minLength": 1,
@@ -106,7 +99,7 @@
                   }
                 },
                 "method": "post",
-                "path": "/@{encodeURIComponent(encodeURIComponent(parameters('$connections')['servicebus']['queueName']))}/messages"
+                "path": "/@{encodeURIComponent(encodeURIComponent('helpdesk-ticket-updated'))}/messages"
               }
             }
           },
@@ -118,8 +111,7 @@
               "servicebus": {
                 "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westeurope', '/managedApis/', 'servicebus')]",
                 "connectionId": "[resourceId(parameters('MiddlewareResourceGroup'), 'Microsoft.Web/connections', parameters('ServiceBusConnectionName'))]",
-                "connectionName": "[parameters('ServiceBusConnectionName')]",
-                "queueName": "[parameters('ServiceBusQueueName')]"
+                "connectionName": "[parameters('ServiceBusConnectionName')]"
               }
             }
           }
