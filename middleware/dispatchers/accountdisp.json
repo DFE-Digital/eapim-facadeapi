@@ -45,7 +45,7 @@
     "LogicAppName": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "s113d01-accountdisp-la-01"
+      "defaultValue": "s113d01-accountdisp-la-02"
     }
   },
   "variables": {},
