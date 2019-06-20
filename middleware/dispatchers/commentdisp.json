@@ -45,7 +45,7 @@
     "LogicAppName": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "s113d01-ticketupdatedisp-la-04"
+      "defaultValue": "s113d01-commentdisp-la-04"
     }
   },
   "variables": {},
@@ -99,7 +99,7 @@
                   }
                 },
                 "method": "post",
-                "path": "/@{encodeURIComponent(encodeURIComponent('helpdesk-ticket-updated'))}/messages"
+                "path": "/@{encodeURIComponent(encodeURIComponent('helpdesk-comment-created'))}/messages"
               }
             }
           },
