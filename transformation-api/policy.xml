@@ -15,11 +15,7 @@
         <base />
     </backend>
     <outbound>
-        <return-response>
-            <set-status code="200" reason="OK" />
-            <set-body />
-        </return-response>
-        <base />
+         <base />
     </outbound>
     <on-error>
         <base />
