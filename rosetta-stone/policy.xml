@@ -1,7 +1,7 @@
 <policies>
   <inbound>
     <base />
-    <set-backend-service id="apim-generated-policy" backend-id="{{rossettastone_backend_id}}" />
+    <set-backend-service id="apim-generated-policy" backend-id="{{rossettastone-backend-id}}" />
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
       <openid-config url="{{eapim-oauth-url}}" />
       <required-claims>
