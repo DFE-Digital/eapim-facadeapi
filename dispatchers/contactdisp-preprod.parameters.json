@@ -6,7 +6,7 @@
       "value": "s113t02-middleware"
     },
     "ServiceBusConnectionName": {
-      "value": "s113t02-servicebus-conn"
+      "value": "s113t02-sb-01-conn"
     },
     "LogicAppName": {
       "value": "s113t02-contactdisp-la-03"
