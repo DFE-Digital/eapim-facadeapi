@@ -1,0 +1,184 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Orchestrator API",
+    "version": "1.0",
+    "description": "Internal middleware component: processes middleware events and performs actions."
+  },
+  "basePath": "/v1/transformation",
+  "paths": {
+    "/process-event-information": {
+      "post": {
+        "description": "Accepts an event envelope and synchronously processes a single event.",
+        "operationId": "process-event-information",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Event Envelope",
+            "description": "An event envelope, containing the event identifier and event information to process.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/event-envelope"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The event was processed with success."
+          },
+          "500": {
+            "description": "An unexpected error has occurred - please get in touch with us so we can check our logs!"
+          }
+        }
+      }
+    },
+    "/heart-beat": {
+      "get": {
+        "description": "Standard diagnostics method, used to test the health of the facade's underlying system.",
+        "operationId": "heart-beat",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The standard/only response from the method."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "event-envelope": {
+      "type": "object",
+      "properties": {
+        "eventIdentifier": {
+          "type": "object",
+          "properties": {
+            "systemName": {
+              "type": "string",
+              "example": "helpdesk"
+            },
+            "systemEntity": {
+              "type": "string",
+              "example": "ticket"
+            },
+            "eventDescription": {
+              "type": "string",
+              "example": "created"
+            }
+          }
+        },
+        "eventInformation": {
+          "type": "object",
+          "properties": {
+            "example": {
+              "type": "object",
+              "properties": {
+                "ticket": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": 1234
+                    }
+                  }
+                },
+                "requester": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": 5678
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Joe Bloggs"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "joe.bloggs@example.com"
+                    }
+                  }
+                },
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": 9012
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "SomeCorp Ltd"
+                    },
+                    "custom_fields": {
+                      "type": "object",
+                      "properties": {
+                        "phone": {
+                          "type": "string",
+                          "example": "01234 4567890"
+                        },
+                        "phone2": {
+                          "type": "string",
+                          "example": "12345 6789012"
+                        },
+                        "type": {
+                          "type": "string",
+                          "example": "training_provider"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ticket_type": {
+                  "type": "string",
+                  "example": "Ticket"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "New"
+                },
+                "priority": {
+                  "type": "string",
+                  "example": "Low"
+                },
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": 3456
+                    }
+                  }
+                },
+                "assignee": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": 7890
+                    }
+                  }
+                },
+                "description": {
+                  "type": "string",
+                  "example": "----------------------------------------------\\n\\nMatt Middleton, Jun 27, 07:28\\n\\nThis is the body of the ticket."
+                },
+                "created_at": {
+                  "type": "string",
+                  "example": "2019-06-27T07:28:50-04:00"
+                },
+                "via": {
+                  "type": "string",
+                  "example": "Web Form"
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Joe Bloggs has an issue!"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
