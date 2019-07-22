@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "MiddlewareResourceGroup": {
+      "value": "s113t02-middleware"
+    },
+    "ServiceBusConnectionName": {
+      "value": "s113t02-sb-01-conn"
+    },
+    "LogicAppName": {
+      "value": "s113t02-tickclosedaescdisp-la-12"
+    }
+  }
+}
