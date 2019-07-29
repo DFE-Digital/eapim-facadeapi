@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "MiddlewareResourceGroup": {
+      "value": "s113t01-middleware"
+    },
+    "ServiceBusConnectionName": {
+      "value": "s113t01-servicebus-conn"
+    },
+    "LogicAppName": {
+      "value": "s113t01-itsmattachmentsdisp-la-16"
+    }
+  }
+}
