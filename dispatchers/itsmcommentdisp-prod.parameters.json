@@ -6,7 +6,7 @@
       "value": "s113p01-middleware"
     },
     "ServiceBusConnectionName": {
-      "value": "s113p01-servicebus-conn"
+      "value": "s113p01-sb-01-conn"
     },
     "LogicAppName": {
       "value": "s113p01-itsmcommentdisp-la-14"
