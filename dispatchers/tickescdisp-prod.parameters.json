@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "MiddlewareResourceGroup": {
-      "value": "s113t01-middleware"
+      "value": "s113p01-middleware"
     },
     "ServiceBusConnectionName": {
-      "value": "s113t01-servicebus-conn"
+      "value": "s113p01-sb-01-conn"
     },
     "LogicAppName": {
-      "value": "s113t01-tickcaescdisp-la-09"
+      "value": "s113p01-tickescdisp-la-10"
     }
   }
 }
