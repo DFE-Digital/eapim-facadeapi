@@ -99,7 +99,7 @@
                   }
                 },
                 "method": "post",
-                "path": "/@{encodeURIComponent(encodeURIComponent('helpdesk-incident-putonhold'))}/messages"
+                "path": "/@{encodeURIComponent(encodeURIComponent('itsm-incident-putonhold'))}/messages"
               }
             }
           },
