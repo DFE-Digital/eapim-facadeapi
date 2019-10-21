@@ -67,7 +67,143 @@
               "type": "Request",
               "kind": "Http",
               "inputs": {
-                "method": "POST"
+                "method": "POST",
+                "schema": {
+                  "properties": {
+                    "Name": {
+                      "type": "string"
+                    },
+                    "PostcodeAppendedDuplicateCompanyName": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "accountid": {
+                      "type": "string"
+                    },
+                    "address1_city": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_county": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_line1": {
+                      "type": "string"
+                    },
+                    "address1_line2": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_line3": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_postalcode": {
+                      "type": "string"
+                    },
+                    "customertypecode": {
+                      "properties": {
+                        "Value": {
+                          "enum": [
+                            null,
+                            200001,
+                            200002,
+                            200005,
+                            200007,
+                            200008
+                          ],
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "Value"
+                      ],
+                      "type": "object"
+                    },
+                    "emailaddress1": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "owneremail": {
+                      "type": "string"
+                    },
+                    "owneridname": {
+                      "type": "string"
+                    },
+                    "sfa_ceasedtrading": {
+                      "type": "integer",
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    },
+                    "sfa_employermanagement": {
+                      "properties": {
+                        "Value": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ],
+                          "enum": [
+                            null,
+                            229660000,
+                            229660001,
+                            229660002,
+                            229660003,
+                            229660004,
+                            229660005,
+                            229660006
+                          ]
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "Value"
+                      ]
+                    },
+                    "telephone1": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "PostcodeAppendedDuplicateCompanyName",
+                    "accountid",
+                    "address1_city",
+                    "address1_county",
+                    "address1_line1",
+                    "address1_line2",
+                    "address1_line3",
+                    "address1_postalcode",
+                    "customertypecode",
+                    "emailaddress1",
+                    "owneremail",
+                    "owneridname",
+                    "sfa_ceasedtrading",
+                    "sfa_employermanagement",
+                    "telephone1"
+                  ],
+                  "type": "object"
+                }
               },
               "operationOptions": "EnableSchemaValidation"
             }

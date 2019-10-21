@@ -67,7 +67,108 @@
               "type": "Request",
               "kind": "Http",
               "inputs": {
-                "method": "POST"
+                "method": "POST",
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "address1_city",
+                    "address1_county",
+                    "address1_line1",
+                    "address1_line2",
+                    "address1_line3",
+                    "address1_postalcode",
+                    "contactid",
+                    "customertypecode",
+                    "emailaddress1",
+                    "fullname",
+                    "mobilephone",
+                    "parentcustomerid",
+                    "telephone1"
+                  ],
+                  "properties": {
+                    "address1_city": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_county": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_line1": {
+                      "type": "string"
+                    },
+                    "address1_line2": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_line3": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "address1_postalcode": {
+                      "type": "string"
+                    },
+                    "contactid": {
+                      "type": "string"
+                    },
+                    "customertypecode": {
+                      "type": "object",
+                      "required": [
+                        "Value"
+                      ],
+                      "properties": {
+                        "Value": {
+                          "type": "integer",
+                          "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            200001,
+                            200004
+                          ]
+                        }
+                      }
+                    },
+                    "emailaddress1": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "fullname": {
+                      "type": "string"
+                    },
+                    "mobilephone": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "parentcustomerid": {
+                      "type": "object",
+                      "required": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "telephone1": {
+                      "type": "string"
+                    }
+                  }
+                }
               },
               "operationOptions": "EnableSchemaValidation"
             }
