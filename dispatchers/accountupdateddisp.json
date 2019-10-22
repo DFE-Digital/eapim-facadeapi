@@ -203,10 +203,6 @@
               },
               "operationOptions": "EnableSchemaValidation"
             }
-          }
-        },
-        "operationOptions": "EnableSchemaValidation"
-      }
           },
           "actions": {
             "Response": {
