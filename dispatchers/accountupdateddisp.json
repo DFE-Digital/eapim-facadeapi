@@ -116,7 +116,6 @@
                       "properties": {
                         "Value": {
                           "enum": [
-                            null,
                             200001,
                             200002,
                             200005,
@@ -124,15 +123,14 @@
                             200008
                           ],
                           "type": [
-                            "integer",
-                            "null"
+                            "integer"
                           ]
                         }
                       },
-                      "required": [
-                        "Value"
-                      ],
-                      "type": "object"
+                      "type": [
+                        "object",
+                        "null"
+                      ]
                     },
                     "emailaddress1": {
                       "type": [
@@ -157,11 +155,9 @@
                       "properties": {
                         "Value": {
                           "type": [
-                            "integer",
-                            "null"
+                            "integer"
                           ],
                           "enum": [
-                            null,
                             229660000,
                             229660001,
                             229660002,
@@ -172,9 +168,9 @@
                           ]
                         }
                       },
-                      "type": "object",
-                      "required": [
-                        "Value"
+                      "type": [
+                        "object",
+                        "null"
                       ]
                     },
                     "telephone1": {
@@ -207,6 +203,10 @@
               },
               "operationOptions": "EnableSchemaValidation"
             }
+          }
+        },
+        "operationOptions": "EnableSchemaValidation"
+      }
           },
           "actions": {
             "Response": {

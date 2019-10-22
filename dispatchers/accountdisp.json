@@ -127,7 +127,10 @@
                           ]
                         }
                       },
-                      "type": "object"
+                      "type": [
+                        "object",
+                        "null"
+                      ]
                     },
                     "emailaddress1": {
                       "type": [
@@ -165,7 +168,10 @@
                           ]
                         }
                       },
-                      "type": "object"
+                      "type": [
+                        "object",
+                        "null"
+                      ]
                     },
                     "telephone1": {
                       "type": [
