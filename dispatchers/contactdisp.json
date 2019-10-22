@@ -139,10 +139,7 @@
                       }
                     },
                     "emailaddress1": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string"
                     },
                     "fullname": {
                       "type": "string"
