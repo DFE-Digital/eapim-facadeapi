@@ -116,7 +116,6 @@
                       "properties": {
                         "Value": {
                           "enum": [
-                            null,
                             200001,
                             200002,
                             200005,
@@ -124,14 +123,10 @@
                             200008
                           ],
                           "type": [
-                            "integer",
-                            "null"
+                            "integer"
                           ]
                         }
                       },
-                      "required": [
-                        "Value"
-                      ],
                       "type": "object"
                     },
                     "emailaddress1": {
@@ -157,11 +152,9 @@
                       "properties": {
                         "Value": {
                           "type": [
-                            "integer",
-                            "null"
+                            "integer"
                           ],
                           "enum": [
-                            null,
                             229660000,
                             229660001,
                             229660002,
@@ -172,10 +165,7 @@
                           ]
                         }
                       },
-                      "type": "object",
-                      "required": [
-                        "Value"
-                      ]
+                      "type": "object"
                     },
                     "telephone1": {
                       "type": [
