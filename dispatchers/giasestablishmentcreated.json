@@ -85,7 +85,7 @@
                     "required": [
                         "urn",
                         "name",
-                        "yypeCode",
+                        "typeCode",
                         "headTitle",
                         "headFirstName",
                         "headLastName",
