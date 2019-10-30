@@ -45,7 +45,7 @@
       "LogicAppName": {
         "type": "string",
         "minLength": 1,
-        "defaultValue": "s113d01-giasgovernorcreateddisp-la-30"
+        "defaultValue": "s113d01-giasgovernorcreateddisp-la-36"
       }
     },
     "variables": {},
