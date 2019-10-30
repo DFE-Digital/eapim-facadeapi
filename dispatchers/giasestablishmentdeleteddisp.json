@@ -45,7 +45,7 @@
       "LogicAppName": {
         "type": "string",
         "minLength": 1,
-        "defaultValue": "s113d01-giasestablishmentupdated-la-30"
+        "defaultValue": "s113d01-giasestablishmentdeleteddisp-la-30"
       }
     },
     "variables": {},
@@ -124,7 +124,7 @@
                     }
                   },
                   "method": "post",
-                  "path": "/@{encodeURIComponent(encodeURIComponent('gias-establishment-updated'))}/messages"
+                  "path": "/@{encodeURIComponent(encodeURIComponent('gias-establishment-deleted'))}/messages"
                 }
               }
             },
