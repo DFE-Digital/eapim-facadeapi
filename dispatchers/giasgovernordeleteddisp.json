@@ -45,7 +45,7 @@
       "LogicAppName": {
         "type": "string",
         "minLength": 1,
-        "defaultValue": "s113d01-giasgovernordeleteddisp-la-30"
+        "defaultValue": "s113d01-giasgovernordeleteddisp-la-38"
       }
     },
     "variables": {},
