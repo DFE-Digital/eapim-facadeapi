@@ -67,7 +67,21 @@
               "type": "Request",
               "kind": "Http",
               "inputs": {
-                "method": "POST"
+                "method": "POST",
+                "schema": {
+                  "properties": {
+                    "sys_id": {
+                      "type": "string"
+                    },
+                    "number": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "sys_id",
+                    "number"
+                  ]
+                }
               },
               "operationOptions": "EnableSchemaValidation"
             }

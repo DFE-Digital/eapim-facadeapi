@@ -67,7 +67,28 @@
               "type": "Request",
               "kind": "Http",
               "inputs": {
-                "method": "POST"
+                "method": "POST",
+                "schema": {
+                  "properties": {
+                    "sys_id": {
+                      "type": "string"
+                    },
+                    "element_id": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "attachment_token": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "sys_id",
+                    "element_id",
+                    "value"
+                  ]
+                }
               },
               "operationOptions": "EnableSchemaValidation"
             }

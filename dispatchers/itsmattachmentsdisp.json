@@ -67,7 +67,25 @@
               "type": "Request",
               "kind": "Http",
               "inputs": {
-                "method": "POST"
+                "method": "POST",
+                "schema": {
+                  "properties": {
+                    "incident_sys_id": {
+                      "type": "string"
+                    },
+                    "attachment_data": {
+                      "type": "string"
+                    },
+                    "attachment_filename": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "incident_sys_id",
+                    "attachment_data",
+                    "attachment_filename"
+                  ]
+                }
               },
               "operationOptions": "EnableSchemaValidation"
             }
