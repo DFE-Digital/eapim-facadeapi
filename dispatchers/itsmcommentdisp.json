@@ -70,9 +70,6 @@
                 "method": "POST",
                 "schema": {
                   "properties": {
-                    "sys_id": {
-                      "type": "string"
-                    },
                     "element_id": {
                       "type": "string"
                     },
@@ -84,7 +81,6 @@
                     }
                   },
                   "required": [
-                    "sys_id",
                     "element_id",
                     "value"
                   ]
